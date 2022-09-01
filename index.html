@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff6600" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Berkenalan dengan PWA</title>
+    <!-- Add manifest.json to the root of your project. -->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,400&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-gray-300">
+    <div class="max-w-md shadow-2xl mx-auto bg-slate-100 min-h-screen pt-3">
+        <header class="h-10 px-3 w-full flex justify-center items-center relative">
+            <h1 class="font-bold px-14 text-base">Berkenalan dengan PWA</h1>
+        </header>
+
+        <section class="mt-5 px-6">
+            <h2 class="font-bold text-xl mb-3">Apa yang kita pelajari?</h2>
+
+            <div id="link-list-pinned" class="flex flex-col gap-4 mb-3">
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Add To Home Screen (Installable)</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Offline/Online State</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Offline Fallback Page</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Show Battery Status</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Access Camera</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Microphone</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Geolocation</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Bluetooth</span>
+                </a>
+
+                <a href="#" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Net Info</span>
+                </a>
+
+                <!-- <button id="shareIt" class="rounded-full w-full bg-white px-8 py-4 font-bold text-sm hover:opacity-70">
+                    <span class="line-clamp-1">Share</span>
+                </button> -->
+
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {   //cek browser support serviceWorker
+            navigator.serviceWorker.register('/service-worker.js',
+                { scope: '/' }).then(function (reg) {
+                    //Berhasil terdaftar
+                    console.log('Terdaftar pada scope' + reg.scope)
+                }).catch(function (error) {
+                    //Gagal Terdaftar
+                    console.log('Gagal :' + error)
+                });
+        };
+
+        // share apps
+        // document.getElementById('shareIt').click(function () {
+        //     if (navigator.share) {
+        //         navigator.share({
+        //             title: 'Berkenalan dengan PWA',
+        //             text: 'Ini PWA pertamaku atau kesekian kaliku. Follow aku ya.. ',
+        //             url: 'https://instagram.me/',
+        //         })
+        //             .then(() => console.log('Successful share'))
+        //         // .catch((error) => myApp.addNotification({message:'Membatalkan membagi'}, error));
+        //     } else {
+        //         if (navigator.share === undefined) {
+        //             alert('Only work on mobile device vro!');
+        //         }
+        //     }
+        // });
+    </script>
+</body>
+
+</html>
